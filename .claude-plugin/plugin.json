@@ -1,9 +1,0 @@
-{
-  "name": "meta-ads-strategist",
-  "description": "Genera y audita creativos para Meta Ads aplicando el Playbook Andromeda 2026-2027 sobre un brief por cliente. Incluye skill auto-activable y comandos /meta-brief y /meta-audit.",
-  "version": "1.0.0",
-  "author": {
-    "name": "Pietro / Narkan",
-    "email": "agencia.narkan@gmail.com"
-  }
-}

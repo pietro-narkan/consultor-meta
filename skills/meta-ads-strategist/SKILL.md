@@ -96,4 +96,4 @@ Do not add extra sections. Do not list the checks that passed.
 
 ## Updating the playbook
 
-The playbook lives at `references/playbook.md` within this skill and is distributed with the plugin. To update: edit that file in the source repository, commit, and re-publish. Teammates pull the new version via `/plugin marketplace update consultor-meta`.
+The playbook lives at `references/playbook.md` within this skill. To update: edit it in the source repository (`consultor-meta`), commit, push. Teammates re-run `install.sh` (idempotent) to pull the new version.

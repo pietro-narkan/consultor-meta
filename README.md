@@ -1,29 +1,36 @@
 # consultor-meta
 
-Plugin de Claude Code para consultoría de **Meta Ads**, basado en el Playbook Andromeda 2026-2027.
+Skill + comandos para Claude Code, para consultoría de **Meta Ads** basada en el Playbook Andromeda 2026-2027.
 
 Incluye:
 - Skill `meta-ads-strategist` — se autoactiva al pedir creativos, hooks, guiones (UGC/VSSL), copy de statics, o auditorías de anuncios.
 - Comando `/meta-brief` — entrevista corta y crea `brief.md` para un cliente nuevo.
 - Comando `/meta-audit` — toma un creativo pegado y devuelve diagnóstico + issues priorizados + versión reescrita.
 
-## Instalación (equipo)
+## Instalación (una línea)
 
-En cualquier máquina con Claude Code, dentro de una sesión:
+En cualquier máquina con Claude Code instalado:
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/pietro-narkan/consultor-meta/main/install.sh | bash
 ```
-/plugin marketplace add pietro-narkan/consultor-meta
-/plugin install meta-ads-strategist@consultor-meta
+
+O en dos pasos si preferís ver el código antes:
+
+```bash
+git clone https://github.com/pietro-narkan/consultor-meta && cd consultor-meta && bash install.sh
 ```
 
-Después abrí una sesión nueva — la skill y los comandos aparecen disponibles globalmente.
+Después abrí una sesión nueva de Claude Code — la skill y los comandos quedan disponibles globalmente.
 
-## Actualizaciones
+## Actualizar
 
-Cuando se publique una nueva versión:
+Volvé a correr el mismo comando de install. Es idempotente: sobrescribe los archivos con la última versión.
 
-```
-/plugin marketplace update consultor-meta
+## Desinstalar
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/pietro-narkan/consultor-meta/main/uninstall.sh | bash
 ```
 
 ## Uso por cliente
@@ -39,17 +46,15 @@ En la carpeta de cada cliente:
 El playbook canónico vive en `skills/meta-ads-strategist/references/playbook.md`. Para actualizarlo:
 
 1. Editar ese archivo en este repo.
-2. Bump del `version` en `.claude-plugin/plugin.json` y `.claude-plugin/marketplace.json`.
-3. Commit + push.
-4. Avisar al equipo para que corra `/plugin marketplace update consultor-meta`.
+2. Commit + push.
+3. Avisar al equipo para que vuelvan a correr el comando de install (idempotente).
 
-## Estructura del plugin
+## Estructura
 
 ```
 consultor-meta/
-├── .claude-plugin/
-│   ├── plugin.json           # manifest del plugin
-│   └── marketplace.json      # manifest del marketplace
+├── install.sh                # one-liner installer
+├── uninstall.sh
 ├── skills/
 │   └── meta-ads-strategist/
 │       ├── SKILL.md          # orquestador
